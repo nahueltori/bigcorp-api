@@ -1,0 +1,1 @@
+{"department":{"id":5,"name":"Inbound Sales","superdepartment":{"id":1,"name":"Sales","superdepartment":null}},"first":"Richard","id":100,"last":"Rogers","manager":{"department":5,"first":"Patricia","id":1,"last":"Diaz","manager":null,"office":{"address":"20 W 34th St","city":"New York","country":"United States","id":2}},"office":4}
