@@ -5,6 +5,7 @@ from api.model.employeeDatasource import getEmployeesSource, finishExpandEmploye
 from api.model.department import Department, DepartmentList
 from api.model.office import Office, OfficeList
 from api.model.localDatasource import getDepartmentSource, getOfficeSource
+from flask_cors import cross_origin
 
 
 bp = Blueprint('api', __name__, url_prefix='/api/v1')
@@ -26,6 +27,7 @@ def getQueryParams():
     return limit, offset, expand
 
 
+@cross_origin()
 @bp.route('/employees', methods=['GET'])
 def getEmployeesList():
     limit, offset, expand = getQueryParams()
@@ -36,6 +38,7 @@ def getEmployeesList():
     return jsonify(listEmployees.to_collection())
 
 
+@cross_origin()
 @bp.route('/employees/<int:id>', methods=['GET'])
 def getEmployee(id):
     limit, offset, expand = getQueryParams()
@@ -46,6 +49,7 @@ def getEmployee(id):
     return employee.to_dict()
 
 
+@cross_origin()
 @bp.route('/departments', methods=['GET'])
 def getDeparments():
     limit, offset, expand = getQueryParams()
@@ -55,6 +59,7 @@ def getDeparments():
     return jsonify(listDepartments.to_collection())
 
 
+@cross_origin()
 @bp.route('/departments/<int:id>', methods=['GET'])
 def getDeparment(id):
     limit, offset, expand = getQueryParams()
@@ -64,6 +69,7 @@ def getDeparment(id):
     return department.to_dict()
 
 
+@cross_origin()
 @bp.route('/offices', methods=['GET'])
 def getOffices():
     limit, offset, expand = getQueryParams()
@@ -72,6 +78,7 @@ def getOffices():
     return jsonify(listOffices.to_collection())
 
 
+@cross_origin()
 @bp.route('/offices/<int:id>', methods=['GET'])
 def getOffice(id):
     office = Office()

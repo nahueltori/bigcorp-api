@@ -3,3 +3,4 @@ requests
 gunicorn
 pytest
 coverage
+flask_cors
